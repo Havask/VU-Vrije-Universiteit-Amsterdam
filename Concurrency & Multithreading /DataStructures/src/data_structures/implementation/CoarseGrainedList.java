@@ -20,7 +20,6 @@ public class CoarseGrainedList<T extends Comparable<T>> implements Sorted<T> {
         
         try{
             linkedlist.add(t);
-            //System.out.print(linkedlist + "\n"); 
             
         }finally{
             //Unlocks the lock 
