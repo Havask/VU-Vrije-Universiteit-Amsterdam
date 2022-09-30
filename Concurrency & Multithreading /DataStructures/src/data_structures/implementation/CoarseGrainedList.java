@@ -8,39 +8,42 @@ import java.util.concurrent.locks.ReentrantLock;
 // Leave the public API the same so it can be tested with the existing evaluation framework.
 // Document your design/implementation choices in comments.
 public class CoarseGrainedList<T extends Comparable<T>> implements Sorted<T> {
-    
+
+    //Creates a linked list 
     list linkedlist = new list();
+    //Creates one lock 
     ReentrantLock l = new ReentrantLock();
   
+    //Method for adding objects to the list
     public void add(T t) {
         
-        //System.out.print("Adding"); 
         //tries to aquire the lock 
         l.lock();
         
+        //if the lock gets aquired
         try{
+            //Adds object to the list 
             linkedlist.add(t);
             
         }finally{
-            //Unlocks the lock 
+            //Unlocks the lock and gives it to another thread
             l.unlock();
         }
     }
     
+    //Method for removing objects from the list
     public void remove(T t) {
-
-        //System.out.print("Removing"); 
 
         //tries to aquire the lock 
         l.lock();
      
-
+        //if the lock gets aquired
         try{
+            //Removes object from the list
             linkedlist.remove(t);
-            //System.out.print(linkedlist + "\n"); 
             
         }finally{
-            //Unlocks the lock 
+            //Unlocks the lock and gives it to another thread
             l.unlock();
         }
     }
@@ -50,15 +53,21 @@ public class CoarseGrainedList<T extends Comparable<T>> implements Sorted<T> {
         
         //Makes an array out of the data structure to check if its emty 
         ArrayList<T> array = linkedlist.ToArray();  
-        //System.out.print(array); 
 
+        //Returns an empty array
         return array;   
     }
 }
 
+/*
+ * The linked list is based in part on this implementation found here: 
+ * https://www.geeksforgeeks.org/how-to-implement-generic-linkedlist-in-java/
+ */
+
+ //Generic node class
 class node<T> {
  
-    //data and pointer 
+    //data and pointer for the nodes
     T data;
     node<T> next;
 
@@ -69,53 +78,52 @@ class node<T> {
     }
 }
  
+
 class list<T> {
- 
+    
     node<T> head;
-    private int length = 0;
  
     // Default constructor
     list() { this.head = null; }
    
+    //Method to add to the end of the list
     void add(T t){
 
-        // Creating new node with given value
+        //Creating new node with given value
         node<T> temp = new node<>(t);
  
-        // Checking if list is empty
-        if (this.head == null) {
+        //Checks if list is empty
+        if (this.head == null){
             head = temp;
         }
  
-        // If list already exists
+        //If list already exists
         else {
-            // Temporary node for traversal
+            // Temporary node for traversing the list
             node<T> Node = head;
  
-            // Iterating till end of the List
+            //Iterating till end of the List
             while (Node.next != null) {
                 Node = Node.next;
             }
  
-            // Adding new valued node at the end of the list
+            //Adds the new valued at the end of the list
             Node.next = temp;
         }
- 
-        // Increasing length after adding new node
-        length++;
     }
  
-    // To remove a node from list
+    //Method to remove an object from the list
     void remove(T t){
 
-        //Creates a node pointed
+        //Creates a node
         node<T> prev = new node<>(null);
- 
+        //points it to the head
         prev.next = head;
+        
         node<T> next = head.next;
         node<T> temp = head;
  
-        //If head node needs to be deleted, making it null
+        //Checks if the heads needs deleting
         if (head.data == t) {
             head = head.next;
         }
@@ -136,47 +144,36 @@ class list<T> {
             // Next node points the node ahead of current node
             next = temp.next;
         }
-            //Reduces the length of the list
-            length--;
     }
 
-    public String toString(){
- 
-        String S = "{ ";
-        node<T> node = head;
- 
-        if (node == null)
-            return S + " }";
- 
-        while (node.next != null) {
-            S += String.valueOf(node.data) + " -> ";
-            node = node.next;
-        }
-
-        S += String.valueOf(node.data);
-        return S + " }";
-    }
-
+    //method to make the linked list to an array
     public ArrayList<T> ToArray()
     {
+        //Creates a node 
         node<T> node = head;
+        //Creates a arraylist 
         ArrayList<T>  array = new ArrayList<T>();
 
+        //checks if its empty 
         if(node == null){
             return array; 
         }
 
         while (node.next != null) {
-    
+            //Adds everything to the array
             array.add(node.data); 
             node = node.next;
         }
 
+        //Checks if its empty
         if(array.size() > 0){
+            //empty it if its not 
             remove(array.get(0));
             array.clear();
+            // Had some trouble with one object still in the list 
         } 
-
+        
+        //returns the array
         return array; 
     }
 }
