@@ -1,11 +1,9 @@
-=========================
-Educational Courses Repository
-=========================
+![alt](https://assets.vu.nl/d8b6f1f5-816c-005b-1dc1-e363dd7ce9a5/03b18476-b98e-43c2-8b3c-1d7d50026c89/VU_logo_RGB-01.jpg)
 
-Introduction to Economics, Software Design, Computer Networks, Concurrency and Multithreading, Data Wrangling, Web Technologies
+Vrije-Universiteit-Amsterdam
 ===========================================================================================================================
 
-Welcome to the Educational Courses Repository! This repository contains materials and resources for the following courses:
+This repository contains course materials and resources for the following courses:
 
 1. Introduction to Economics
 --------------------
