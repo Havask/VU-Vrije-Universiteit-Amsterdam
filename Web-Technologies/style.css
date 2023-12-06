@@ -1,0 +1,155 @@
+
+
+body {
+	background-color:rgb(121, 121, 198);
+	font: 100% / normal sans-serif;
+}
+
+
+h1 {
+	text-decoration: underline;
+	margin: 100px;
+	text-align: center;
+	color: aliceblue;
+}
+
+section {
+	margin-top: 25px;
+	margin-bottom: 25px;
+	color: black;
+	text-align: center;
+}
+
+img {
+	width: 200px;
+	border-radius: 50px;
+	float:right;
+}
+
+
+tr, th, td{
+	border: 5px solid rgb(0, 0, 0);
+	background-color: rgb(232, 232, 246);
+	
+}
+
+
+table{
+	border-spacing: 5px;
+	background-color: rgb(121, 121, 198);
+	border-style: none;
+	border-color: rgb(0, 0, 0);
+	border-width: 14px;
+	caption-side:bottom;
+	margin-left: auto;
+	margin-right: auto;
+	width: 90%;
+}
+
+input {
+	width: 15%;
+	height: 30px;
+	border: 5px solid black;
+	border-radius:10px;
+}
+
+.upform {
+	margin-top: 40px;
+}
+
+.button {
+	font-style: oblique;
+	font-variant: small-caps;
+	margin-top: 20px;
+	width: 10%;
+	height: 45px;
+	border-radius: 20px;
+
+	background: linear-gradient(rgba(255,255,255,0.5)) darkslategrey;
+	font-size: 23px;
+}
+
+.button:hover {
+	background-color: rgb(75, 156, 31);
+}
+
+.button2 {
+	font-style: oblique;
+	font-variant: small-caps;
+	margin-top: 20px;
+	width: 10%;
+	height: 45px;
+	border-radius: 20px;
+	background: linear-gradient(rgba(255,255,255,0.5)) darkslategrey;
+	font-size: 23px;
+}
+
+.button2:hover {
+	background-color: rgb(191, 11, 11);
+}
+
+.modal {
+	display: none;
+	position: fixed;
+	z-index: 1;
+	left: 0;
+	top: 0;
+	width: 100%;/* Full width */
+	height: 100%; /* Full height */
+	overflow: auto;
+	  background-color: rgb(255,255,255);
+	  background-color: rgba(0,0,0,0.4);
+  }
+  
+  /* Modal Content/Box */
+  .modal-content {
+	  background-color: darkslategrey;
+	margin: 15% auto; /* 15% from the top and centered */
+	padding: 20px;
+	border: 1px solid #888;
+	width: 80%; /* Could be more or less, depending on screen size */
+  }
+
+
+  /* The Close Button */
+.close {
+	color: #aaa;
+	float: right;
+	font-size: 28px;
+	font-weight: bold;
+  }
+  
+  .close:hover,
+  .close:focus {
+	color: black;
+	text-decoration: none;
+	cursor: pointer;
+  } 
+
+  .reset {
+	width: 130px;
+	height: 30px;
+	border-radius: 15px;
+	background: linear-gradient(rgba(255,255,255,0.5), rgba(255, 255, 255, 0.5)), darkslategrey;
+	font-size: 15px;
+}
+
+
+.buttondiv {
+	text-align: center;
+}
+
+.buttondiv button {
+	width:350px;
+	height: 45px;
+	border-radius: 20px;
+	background: linear-gradient(rgba(255,255,255,0.5), rgba(255, 255, 255, 0.5)), darkslategrey;
+	font-size: 24px;
+	margin-bottom: 20px;
+}
+
+p{
+	text-align: center;
+
+}
+

@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<!-- Meta data -->
+	<meta charset="utf-8">
+	<link rel="icon" type="image/x-icon" href="https://html.sammy-codes.com/images/small-profile.jpeg">
+	<link rel="stylesheet" href="style.css">
+	<title>Assignment 1</title>
+	<meta name="viewport" content="width=device-width,initial-scale=1.0">
+</head>
+
+<body>
+	<table>
+		<tr id="firstRow">
+			<th scope="col">image</th>
+			<th scope="col">author</th>
+			<th scope="col">alt</th>
+			<th scope="col">tags</th>
+			<th scope="col">description</th>
+		</tr>
+
+		<!-- The table for the authors  -->
+		<tbody id="tablebody"></tbody>
+
+		<tr>
+			<td colspan="5">
+
+				<div class="buttondiv">
+					<button id="myBtn">Open Modal</button>
+				</div>
+
+				<!-- MODAL FROM w3schools www.w3schools.com/howto/howto_css_modals.asp -->
+				<div id="myModal" class="modal">
+
+				<div class="modal-content">
+				<span class="close" id="closespan">&times;</span>
+					<form  id="formElem" class="inform">
+						
+						<input type="text" id="author" name="author" placeholder="author" required>
+						<input type="text" id="alt" name="alt" placeholder="alt" required>
+						<input type="text" id="tags" name="tags" placeholder="tags" required>
+						<input type="url" id="image" name="image" placeholder="image url" required>
+						<input type="text" id="description" name="description" placeholder="description" required>
+						<input class="button" type="submit" value="Send form">
+					</form>
+
+					<form id="updateForm" class="upform">
+						<input type="text"  id="author_id" name="author_id" placeholder="row to update (includes hidden rows)" required>
+						<input type="text" value="asd"  id="updateauthor" name="author" placeholder="author" required>
+						<input type="text" value="asd"  id="updatealt" name="alt" placeholder="alt" required>
+						<input type="text" value="asd"  id="updatetags" name="tags" placeholder="tags" required>
+						<input type="url" id="updateimage" name="image" placeholder="image url" required>
+						<input type="text" value="asd"  id="updatedescription" name="description" placeholder="description" required>
+						<input class="button" type="submit" value="Update row">
+					</form>
+					<form id="DeleteRow" >
+						<input type="number" id="delete" name="description" placeholder="NumberOfRow" required>
+						<input class="button" type="submit" value="Delete">
+					</form>	
+				</div>
+			</div>
+
+			</td>
+			</tr>
+	</table>
+	
+	<script src='script.js'></script>
+
+
+	<h1>RESTful API Documentation</h1>
+
+	<p>
+		Create Request:
+	</p>
+
+	<ul>
+		<li>HTTP Method Type: POST </li>
+		<li>Request Format: http://localhost:3000/authors/ </li>
+		<li>Request Body: A JSON object containing the details of the new author to be created. The object should include the following properties: "author", "alt", "tags", "image", and "description". Example: </li>
+		<p> <code> { 
+			"author": "John Doe",
+			"alt": "Author of the book 'Example'",
+			"tags": "example, book, author",
+			"image": "https://example.com/johndoe.jpg",
+			"description": "John Doe is an accomplished author with several published works."
+		}</code></p>
+		<li>Response Body: There is no response body </li>
+		<li>Response Code: 201 (CREATED) if the request is successful.</li>
+		<li>Response Code: 400 (Bad Request) if the request is unsuccessful.</li>
+	</ul>
+
+	<p>
+		GET Request
+	</p>
+
+	<ul>
+		<li>HTTP Method Type: GET </li>
+		<li>Request Format: http://localhost:3000/authors/ </li>
+		<li>Request Body: Not required for GET requests</li>
+		<li>Response Body: A JSON object containing the requested author resource(s). Example:</li>
+		<p> <code> {
+			"author_id": 1,
+			"author": "John Doe",
+			"alt": "Author of the book 'Example'",
+			"tags": "example, book, author",
+			"image": "https://example.com/johndoe.jpg",
+			"description": "John Doe is an accomplished author with several published works."
+		}
+		</code></p>
+		<li>Response Code: 200 (OK) if the request is successful.</li>
+		<li>Response Code: 500 (SERVER ERROR) if the request is unsuccessful.</li>
+	</ul>
+
+	<p>
+		Update Request:
+	</p>
+
+	<ul>
+		<li>HTTP Method Type: PUT </li>
+		<li>Request Format: http://localhost:3000/authors </li>
+		<li>Request Body: A JSON object containing the updated details of the author to be updated. The object should include the following properties: "author_id", "author", "alt", "tags", "image", and "description". Example:</li>
+		<p> <code> {
+			"author_id": 1,
+			"author": "Jane Doe",
+			"alt": "Author of the book 'New Example'",
+			"tags": "new example, book, author",
+			"image": "https://example.com/janedoe.jpg",
+			"description": "Jane Doe is an accomplished author with several published works."
+		}		
+		</code></p>
+		<li>Response Body: There is no response body</li>
+		<li>Response Code: 200 (OK) if the request is successful.</li>
+		<li>Response Code: 400 (Bad Request) if the request is unsuccessful.</li>
+	</ul>
+
+	<p>
+		Delete Request:
+	</p>
+
+	<ul>
+		<li>HTTP Method Type: DELETE </li>
+		<li>Request Format: http://localhost:3000/authors/{author_id} </li>
+		<li>Request: In the case of DELETE requests, no request body is necessary.</li>
+		<li>Response: The response body of a DELETE request is not necessary.</li>
+		<li>Upon successful deletion of the resource, the server should return a 204 (No Content) response code.</li>
+		<li>Response Code: 400 (Bad Request) if the request is unsuccessful.</li>
+	</ul>
+
+	<style>
+
+</style>
+
+</body>
+</html>
