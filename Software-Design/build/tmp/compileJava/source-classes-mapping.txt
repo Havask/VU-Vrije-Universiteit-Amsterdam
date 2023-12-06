@@ -1,0 +1,3 @@
+softwaredesign/Main.java
+ softwaredesign.Main
+ softwaredesign.Tamagotchi
