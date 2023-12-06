@@ -29,3 +29,7 @@ Discover techniques for cleaning, organizing, and transforming raw data into a u
 --------------------
 Explore the technologies that power the World Wide Web, including HTML, CSS, JavaScript, web development frameworks, and best practices for creating responsive and interactive web applications.
 
+7. Software Engineering Processes
+--------------------
+This course focuses on software engineering processes, methodologies, and best practices. Topics include Software Development Life Cycle (SDLC), Agile Methodology, Requirements Engineering, Software Testing, Version Control Systems, and Software Documentation.
+
